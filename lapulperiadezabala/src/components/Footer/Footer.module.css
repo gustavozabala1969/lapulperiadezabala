@@ -1,0 +1,115 @@
+.footer {
+    margin-top: 30px;
+    background-color: #24201c;
+    color: #f5f1eb;
+}
+
+
+.auspiciantes {
+    padding: 30px 20px;
+    background-color: #f5f2ed;
+    color: #2d2925;
+}
+
+.auspiciantes h4 {
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+
+.informacion {
+    padding: 20px 10px;
+}
+
+.logoCol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo más pequeño */
+.logo {
+    width: 100px;
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+}
+
+.datos {
+    text-align: center;
+}
+
+.datos p {
+    margin: 4px 0;
+
+    font-size: 0.9rem;
+}
+
+.datos p:first-child {
+    margin-bottom: 10px;
+
+    font-size: 1.1rem;
+}
+
+
+.contacto {
+    text-align: center;
+
+    font-size: 0.9rem;
+}
+
+.contacto p {
+    margin: 5px 0;
+}
+
+.telefono {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.instagram {
+    opacity: 0.9;
+}
+
+
+
+.copyright {
+    padding: 12px 20px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+    color: #c9c3bc;
+}
+
+.copyright small {
+    font-size: 0.75rem;
+}
+
+
+@media (max-width: 767px) {
+
+    .informacion {
+        padding: 25px 15px;
+    }
+
+    .logoCol {
+        margin-bottom: 20px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    .datos {
+        margin-bottom: 20px;
+    }
+
+    .contacto {
+        margin-top: 10px;
+    }
+}   

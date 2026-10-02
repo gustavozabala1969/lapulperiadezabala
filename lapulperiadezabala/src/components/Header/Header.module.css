@@ -1,0 +1,102 @@
+.header {
+    width: 100%;
+    min-height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0;
+
+    background-color: #2d2925;
+    color: #f5f1eb;
+
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================
+   IDENTIDAD
+   ========================= */
+
+.identidad {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 10px; /* Separación entre logo y título */
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.titulo {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-weight: 600;
+}
+
+
+/* =========================
+   MENU
+   ========================= */
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+
+    padding: 7px 10px;
+
+    color: #f5f1eb;
+    text-decoration: none;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    border-radius: 6px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+
+/* =========================
+   CARRITO
+   ========================= */
+
+.carrito {
+    margin-left: 8px;
+
+    border: 2px solid #d4a574;
+    border-radius: 8px;
+
+    color: #d4a574;
+
+    padding: 9px 16px;
+}
+
+.carrito:hover {
+    background-color: #d4a574;
+    color: #2d2925;
+}

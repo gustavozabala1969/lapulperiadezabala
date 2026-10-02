@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "fecha": "2026-11-01",
+    "tipo": "CERDO",
+    "descripcion": "Lechon a la Parrilla",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 2,
+    "fecha": "2026-11-07",
+    "tipo": "ASADO",
+    "descripcion": "Asado de Costillares",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 20,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 3,
+    "fecha": "2026-11-08",
+    "tipo": "POLLO",
+    "descripcion": "Variete de Pollos",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 4,
+    "fecha": "2026-11-14",
+    "tipo": "PASTAS",
+    "descripcion": "Pastas a full",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 5,
+    "fecha": "2026-11-15",
+    "tipo": "CERDO",
+    "descripcion": "Lechon a la Parrilla",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 6,
+    "fecha": "2026-11-21",
+    "tipo": "ASADO",
+    "descripcion": "Asado de Costillares",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 7,
+    "fecha": "2026-11-22",
+    "tipo": "POLLO",
+    "descripcion": "Variete de Pollos",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 8,
+    "fecha": "2026-11-28",
+    "tipo": "PASTAS",
+    "descripcion": "Pastas a full",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 9,
+    "fecha": "2026-11-29",
+    "tipo": "CERDO",
+    "descripcion": "Lechon a la Parrilla",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  }
+]

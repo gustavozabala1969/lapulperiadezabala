@@ -1,0 +1,29 @@
+[
+  {
+    "id":"1",
+    "razon_social": "Via Bariloche",
+    "direccion": "Av. San Martín 1234",
+    "localidad": "Lincoln",
+    "telefono": "02355-123456",
+    "logo": "/imagenes/auspiciantes/ViaBariloche.png",
+    "descripcion": "Transporte Pasajeros"
+  },
+  {
+    "id":"2",
+    "razon_social": "Clody sport",
+    "direccion": "Belgrano 456",
+    "localidad": "Lincoln",
+    "telefono": "02355-234567",
+    "logo": "/imagenes/auspiciantes/ClodyRopa.png",
+    "descripcion": "Ropa Deportiva"
+  },
+  {
+    "id":"3",
+    "razon_social": "John Deere",
+    "direccion": "RP 50 Km 2",
+    "localidad": "Lincoln",
+    "telefono": "02355-345678",
+    "logo": "/imagenes/auspiciantes/JohnDeere.png",
+    "descripcion": "Soluciones agrícolas."
+  }
+]
