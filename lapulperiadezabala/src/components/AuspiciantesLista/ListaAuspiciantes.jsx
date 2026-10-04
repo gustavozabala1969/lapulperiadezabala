@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import styles from './ListaAuspiciantes.module.css';
-import Auspiciante from './Auspiciante.jsx';
+import Auspiciante from '../Auspiciantes/Auspiciante.jsx';
 
 function ListaAuspiciantes() {
 

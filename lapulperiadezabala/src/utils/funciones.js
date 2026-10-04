@@ -18,8 +18,36 @@ export function buscarLogo(tipo) {
   return logo;
 }
 
+export function convertirStringADate(fecha) {
+
+    if (!fecha) {
+        return null;
+    }
+
+    const partes = fecha.split('/');
+
+    if (partes.length !== 3) {
+        return null;
+    }
+
+    const [dia, mes, anio] = partes.map(Number);
+
+    const fechaDate = new Date(anio, mes - 1, dia);
+
+    if (
+        fechaDate.getDate() !== dia ||
+        fechaDate.getMonth() !== mes - 1 ||
+        fechaDate.getFullYear() !== anio
+    ) {
+        return null;
+    }
+
+    return fechaDate;
+}
+
+
 export function obtenerDiaSemana(fecha) {
-  const fechaDate = new Date(fecha);
+  const fechaDate = new Date(convertirStringADate(fecha));
 
   const dias = [
     "Domingo",
@@ -32,6 +60,22 @@ export function obtenerDiaSemana(fecha) {
   ];
 
   return dias[fechaDate.getDay()];
+}
+
+export function obtenerNumeroDia(fecha) {
+  const fechaDate = new Date(convertirStringADate(fecha));
+  return (fechaDate.getDate());
+}
+
+export function obtenerMes(fecha) {
+  const fechaDate = new Date(convertirStringADate(fecha));
+
+  const meses = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  ];
+
+  return meses[fechaDate.getMonth()];
 }
 
 export function formatearFechaHoraDate(fecha) {

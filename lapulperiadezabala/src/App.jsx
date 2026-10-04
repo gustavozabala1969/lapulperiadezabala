@@ -3,7 +3,7 @@ import Home from './components/pages/Home/Home';
 
 
 import './App.css'
-import ListaPropuestas from './components/PropuestaGastronomica/ListaPropuestas';
+import ListaPropuestas from './components/PropuestaLista/ListaPropuestas';
 
 function App() {
 

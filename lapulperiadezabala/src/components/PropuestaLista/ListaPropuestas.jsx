@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import styles from './ListaPropuestas.module.css';
-import PropuestaGastronomica from "./PropuestaGastronomica";
+import PropuestaGastronomica from "../PropuestaGastronomica/PropuestaGastronomica";
 
 function ListaPropuestas () {
 
@@ -29,7 +29,7 @@ function ListaPropuestas () {
     
     return (
         <section className={styles.seccion}>
-            <h4 className={styles.titulo}>Opciones Gastronómicas</h4>
+            <h4 className={styles.titulo}>Opciones Gastronómicas al Mediodía <small>12 a 16 hs.</small></h4>
             
             <div className={styles.lista}>
                 {propuestas.map((propuesta) => (

@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "fecha": "2026-11-01",
+    "fecha": "03/10/2026",
     "tipo": "CERDO",
     "descripcion": "Lechon a la Parrilla",
     "capacidadTotal": 80,
@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "fecha": "2026-11-07",
+    "fecha": "04/10/2026",
     "tipo": "ASADO",
     "descripcion": "Asado de Costillares",
     "capacidadTotal": 80,
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "fecha": "2026-11-08",
+    "fecha": "10/10/2026",
     "tipo": "POLLO",
     "descripcion": "Variete de Pollos",
     "capacidadTotal": 80,
@@ -31,17 +31,17 @@
   },
   {
     "id": 4,
-    "fecha": "2026-11-14",
+    "fecha": "11/10/2026",
     "tipo": "PASTAS",
     "descripcion": "Pastas a full",
     "capacidadTotal": 80,
     "capacidadOcupada": 0,
-    "precioMayores": 30000,
-    "precioMenores": 20000
+    "precioMayores": 24000,
+    "precioMenores": 18000
   },
   {
     "id": 5,
-    "fecha": "2026-11-15",
+    "fecha": "17/10/2026",
     "tipo": "CERDO",
     "descripcion": "Lechon a la Parrilla",
     "capacidadTotal": 80,
@@ -51,7 +51,7 @@
   },
   {
     "id": 6,
-    "fecha": "2026-11-21",
+    "fecha": "18/10/2026",
     "tipo": "ASADO",
     "descripcion": "Asado de Costillares",
     "capacidadTotal": 80,
@@ -61,27 +61,117 @@
   },
   {
     "id": 7,
-    "fecha": "2026-11-22",
+    "fecha": "24/10/2026",
     "tipo": "POLLO",
     "descripcion": "Variete de Pollos",
     "capacidadTotal": 80,
     "capacidadOcupada": 0,
-    "precioMayores": 30000,
-    "precioMenores": 20000
+    "precioMayores": 25000,
+    "precioMenores": 17000
   },
   {
     "id": 8,
-    "fecha": "2026-11-28",
+    "fecha": "25/10/2026",
     "tipo": "PASTAS",
     "descripcion": "Pastas a full",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 20000,
+    "precioMenores": 15000
+  },
+  {
+    "id": 9,
+    "fecha": "31/10/2026",
+    "tipo": "CERDO",
+    "descripcion": "Lechon a la Parrilla",
     "capacidadTotal": 80,
     "capacidadOcupada": 0,
     "precioMayores": 30000,
     "precioMenores": 20000
   },
   {
-    "id": 9,
-    "fecha": "2026-11-29",
+    "id": 10,
+    "fecha": "1/11/2026",
+    "tipo": "CERDO",
+    "descripcion": "Lechon a la Parrilla",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 11,
+    "fecha": "7/11/2026",
+    "tipo": "CERDO",
+    "descripcion": "Lechon a la Parrilla",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 12,
+    "fecha": "8/11/2026",
+    "tipo": "CERDO",
+    "descripcion": "Lechon a la Parrilla",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 13,
+    "fecha": "14/11/2026",
+    "tipo": "CERDO",
+    "descripcion": "Lechon a la Parrilla",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 14,
+    "fecha": "15/11/2026",
+    "tipo": "CERDO",
+    "descripcion": "Lechon a la Parrilla",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 15,
+    "fecha": "21/11/2026",
+    "tipo": "CERDO",
+    "descripcion": "Lechon a la Parrilla",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 16,
+    "fecha": "22/11/2026",
+    "tipo": "CERDO",
+    "descripcion": "Lechon a la Parrilla",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 17,
+    "fecha": "28/11/2026",
+    "tipo": "CERDO",
+    "descripcion": "Lechon a la Parrilla",
+    "capacidadTotal": 80,
+    "capacidadOcupada": 0,
+    "precioMayores": 30000,
+    "precioMenores": 20000
+  },
+  {
+    "id": 18,
+    "fecha": "29/11/2026",
     "tipo": "CERDO",
     "descripcion": "Lechon a la Parrilla",
     "capacidadTotal": 80,

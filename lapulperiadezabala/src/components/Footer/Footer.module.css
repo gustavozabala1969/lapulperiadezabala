@@ -20,7 +20,7 @@
 
 
 .informacion {
-    padding: 20px 10px;
+    padding: 10px 5px;
 }
 
 .logoCol {
@@ -34,7 +34,6 @@
     width: 100px;
     max-width: 100%;
     height: auto;
-
     object-fit: contain;
 }
 
@@ -44,25 +43,23 @@
 
 .datos p {
     margin: 4px 0;
-
     font-size: 0.9rem;
 }
 
 .datos p:first-child {
     margin-bottom: 10px;
-
     font-size: 1.1rem;
 }
 
 
 .contacto {
     text-align: center;
-
     font-size: 0.9rem;
 }
 
-.contacto p {
-    margin: 5px 0;
+.localidad {
+    margin-top: 0;
+    padding: 0;
 }
 
 .telefono {
@@ -77,12 +74,9 @@
 
 
 .copyright {
-    padding: 12px 20px;
-
+    padding: 7px 7px;
     text-align: center;
-
     border-top: 1px solid rgba(255, 255, 255, 0.15);
-
     color: #c9c3bc;
 }
 

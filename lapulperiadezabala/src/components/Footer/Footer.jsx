@@ -1,7 +1,7 @@
 import { Row, Col } from "react-bootstrap";
 // import logoLaPulperia from "../../../public/imagenes/LaPulperia.png";
 
-import ListaAuspiciantes from "../Auspiciantes/ListaAuspiciantes";
+import ListaAuspiciantes from "../AuspiciantesLista/ListaAuspiciantes";
 
 import styles from "./Footer.module.css";
 
@@ -50,15 +50,18 @@ function Footer() {
 
                     {/* Contacto */}
                     <Col xs={12} md={3} className={styles.contacto}>
-                        <p>
-                            Ruta 68 Km 29, Localidad, Buenos Aires
+                        <p className={styles.direccion}>
+                            Ruta 68 Km 29
+                        </p>
+                        <p className={styles.localidad}>
+                            Localidad, Buenos Aires
                         </p>
 
                         <p className={styles.telefono}>
                             (0221) 400-0000
                         </p>
 
-                        <p>
+                        <p className={styles.instagram}>
                             <span className={styles.instagram}>
                                 @lapulperiadezabala
                             </span>
