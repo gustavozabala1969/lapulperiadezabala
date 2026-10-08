@@ -1,0 +1,133 @@
+.formulario {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #fffaf1;
+    border: 1px solid #e2d2b8;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(73, 48, 31, 0.12);
+    color: #403328;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+.grilla {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 25px;
+}
+
+.campo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.campo label {
+    width: 180px;
+    flex-shrink: 0;
+
+    color: #49301f;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.campo input,
+.campo select {
+    flex: 1;
+    min-height: 43px;
+    padding: 9px 12px;
+    border: 1px solid #cbb99d;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #403328;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: #bd965b;
+    box-shadow: 0 0 0 3px rgba(189, 150, 91, 0.2);
+}
+
+.ayuda {
+    color: #806f5c;
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+.contador {
+    align-self: flex-end;
+    margin-top: -4px;
+    color: #806f5c;
+    font-size: 0.75rem;
+}
+
+.error {
+    color: #b42318;
+    font-size: 0.8rem;
+}
+
+.acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e2d2b8;
+}
+
+.botonGuardar,
+.botonCancelar {
+    min-width: 145px;
+    padding: 11px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.botonGuardar {
+    background-color: #765238;
+    color: #fffaf1;
+}
+
+.botonGuardar:hover {
+    background-color: #49301f;
+}
+
+.botonCancelar {
+    background-color: #e8dfd1;
+    color: #49301f;
+}
+
+.botonCancelar:hover {
+    background-color: #d9cbb6;
+}
+
+@media (max-width: 600px) {
+    .formulario {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    .grilla {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .acciones {
+        flex-direction: column-reverse;
+    }
+
+    .botonGuardar,
+    .botonCancelar {
+        width: 100%;
+    }
+}

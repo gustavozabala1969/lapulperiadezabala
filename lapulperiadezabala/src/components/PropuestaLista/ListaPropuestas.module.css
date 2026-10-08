@@ -1,11 +1,13 @@
 .seccion {
     width: 100%;
     padding: 20px 10px;
+    max-width: 1000px;
 }
 
 .titulo {
-    margin: 0 0 20px;
-    text-align: center;
+    max-width: 920px;
+    margin: 0 auto 20px;
+    text-align: left;
     font-size: 1.4rem;
     font-weight: 600;
 }

@@ -6,6 +6,8 @@ import PropuestaGastronomica from "../PropuestaGastronomica/PropuestaGastronomic
 function ListaPropuestas () {
 
     const [propuestas, setPropuestas] = useState([]);
+    const [cargando, setCargando] = useState(true);
+    const [error, setError] = useState("");
 
     useEffect(() => {
         const cargarPropuestas = async() => {
@@ -15,24 +17,35 @@ function ListaPropuestas () {
                 if (!response.ok) {
                     throw new Error('Error al cargar propuestas gastronómicas');
                 }
-
                 const listaPropuestas = await response.json();
                 setPropuestas(listaPropuestas);
 
             } catch (error) {
-                console.log(error);
+                setError(error.message);
+                console.log(error.message);
+
+            } finally {
+                setCargando(false);
             }
         }
+        
         cargarPropuestas();
     },[]);
     
     
     return (
         <section className={styles.seccion}>
-            <h4 className={styles.titulo}>Opciones Gastronómicas al Mediodía <small>12 a 16 hs.</small></h4>
+            <h4 className={styles.titulo}>Restaurante al Mediodía <small>12 a 16 hs.</small></h4>
             
             <div className={styles.lista}>
-                {propuestas.map((propuesta) => (
+
+                {cargando && (
+                    <p>Cargando datos .... </p>
+                )}
+                {!cargando && !error==="" && (
+                    <p>Error al buscar información de propuestas gastronómicas !! </p>
+                )}
+                {!cargando && error==="" && propuestas.map((propuesta) => (
                     <PropuestaGastronomica 
                         key={propuesta.id}
                         {...propuesta} /> 

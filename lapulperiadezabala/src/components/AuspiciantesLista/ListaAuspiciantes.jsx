@@ -6,6 +6,8 @@ import Auspiciante from '../Auspiciantes/Auspiciante.jsx';
 function ListaAuspiciantes() {
 
     const [auspiciantes, setAuspiciantes] = useState([]);
+    const [cargando, setCargando] = useState(true);
+    
 
     useEffect(() => {
         const cargarAuspiciantes = async () => {
@@ -20,6 +22,8 @@ function ListaAuspiciantes() {
                 setAuspiciantes(listaAuspiciantes);
             } catch (e) {
                 console.error(e);
+            } finally {
+                setCargando(false);
             }
         }
         cargarAuspiciantes();

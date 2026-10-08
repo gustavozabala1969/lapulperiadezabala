@@ -22,16 +22,21 @@ function Header() {
             <nav className={styles.nav}>
 
                 <a href="/home" className={styles.link}>
-                    Pulpería
+                    Inicio
                 </a>
 
                 <a href="/reservas" className={styles.link}>
                     Reservas
                 </a>
 
-                <a href="/eventos" className={styles.link}>
-                    Eventos
+                <a href="/historia" className={styles.link}>
+                    Historia
                 </a>
+
+                <a href="/admin" className={styles.link}>
+                    Admin
+                </a>
+
 
                 <a href="/auspiciantes" className={styles.link}>
                     Auspiciantes
