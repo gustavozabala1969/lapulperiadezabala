@@ -1,3 +1,6 @@
+import { buscarLogo } from "../../../utils/funciones";
+
+
 import styles from './Home.module.css';
 
 function Home() {
@@ -13,102 +16,32 @@ function Home() {
             <span className={styles.pulperia_subtitulo}>Proximamente Reapertura</span>
             <h3>El Boliche de Zabala</h3>
         </div>
+
+        <div className={styles.pulperia_menu}>
+                <img
+                    src={buscarLogo("CERDO")} 
+                    alt={`Logo CERDO`}
+                    className={styles.logo}
+                />
+                <img
+                    src={buscarLogo("ASADO")} 
+                    alt={`Logo ASADO`}
+                    className={styles.logo}
+                />
+                <img
+                    src={buscarLogo("POLLO")} 
+                    alt={`Logo POLLO`}
+                    className={styles.logo}
+                />
+                <img
+                    src={buscarLogo("PASTAS")} 
+                    alt={`Logo PASTAS`}
+                    className={styles.logo}
+                />
+            </div>
     </section>
 
-    
-    <section className={styles.pulperia_historia}>
-        <div className={styles.pulperia_contenedor}>
 
-        <span className={styles.pulperia_etiqueta}>Nuestra historia</span>
-        <h2>Mucho más que una pulpería</h2>
-
-        <p>
-            Sobre la Ruta Provincial 88, en la zona rural de nuestra
-            localidad, se encontraba una típica pulpería de campo:
-            <strong> "El Boliche de Zabala"</strong>.
-        </p>
-
-        <p>
-            Era mucho más que un almacén. Era el lugar donde los
-            trabajadores rurales encontraban todo aquello que
-            necesitaban para la vida cotidiana. Nunca faltaban el pan, las verduras, los
-            vinos en damajuanas, cigarrillos, tabaco y papel para armar,
-            kerosene, garrafas, repuestos para faroles, hojas de afeitar, una mesa para
-            un gancia, un vino, una picada. Allí se conseguía un poco de
-            todo, porque en el campo la pulpería era una necesidad y,
-            sobre todo, un punto de encuentro.
-        </p>
-
-        <div className={styles.pulperia_separador}>✦</div>
-
-        <h2>Los fines de semana al boliche</h2>
-
-        <p>
-            Cuando llegaba el fin de semana, los pobladores de la zona
-            dejaban por un momento las tareas del campo y se acercaban
-            al Boliche de Zabala para compartir un rato de descanso.
-            Las mesas se llenaban de cartas y de risas: se jugaba al
-            chinchón, al truco y al tuti cabrero.
-        </p>
-
-        <p>
-            Mientras tanto, las mujeres se reunían con la dueña de la
-            pulpería para compartir un té o un café. Entre tejidos,
-            bordados y charlas, las horas transcurrían a la luz
-            cálida de un farol a kerosene.
-        </p>
-
-        <p>
-            Eran momentos simples, de esos que construyen recuerdos
-            para toda la vida. No hacía falta demasiado: una mesa,
-            una baraja, un mate o una taza de café y, sobre todo,
-            la compañía de los vecinos.
-        </p>
-
-        <div className={styles.pulperia_separador}>✦</div>
-
-        <h2>El lugar donde se celebraba la vida</h2>
-
-        <p>
-            Cada acontecimiento especial encontraba su lugar en la
-            pulpería. Nacimientos, cumpleaños, despedidas de soltero,
-            comuniones y festejos del Día del Niño eran motivos
-            suficientes para reunirse y celebrar.
-        </p>
-
-        <p>
-            También había espacio para el deporte y la diversión:
-            los picaditos de fútbol, las partidas de bochas y tantas
-            otras actividades que reunían a grandes y chicos.
-        </p>
-
-        <p className={styles.pulperia_cierre}>
-            <strong>El Boliche de Zabala no era solamente un comercio.
-            Era el corazón de una comunidad.</strong>
-        </p>
-
-        <p>
-            Un lugar donde se compartían alegrías, se construían
-            amistades y se mantenían vivas las costumbres de nuestra
-            gente de campo. Un pedacito de historia rural que merece
-            seguir siendo recordado y celebrado.
-        </p>
-
-        <p>
-            Hoy, después de más de 55 años, queremos abrir nuevamente las
-            puertas para que las nuevas generaciones puedan compartir,
-            disfrutar y crear sus propias historias, con la misma alegría,
-            amistad y espíritu de encuentro que se vivían en aquellas décadas.
-            Porque hay tradiciones que merecen continuar y momentos que
-            merecen volver a repetirse.
-        </p>
- 
-        </div>
-
-        <div className={styles.pulperia_separador}>✦</div>
-
-
-    </section>
     {/*
     <section className={styles.pulperia_frase}>
         <blockquote>

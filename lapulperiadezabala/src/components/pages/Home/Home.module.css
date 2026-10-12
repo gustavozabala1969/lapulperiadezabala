@@ -15,6 +15,7 @@
 .pulperia_portada {
     min-height: 240px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -57,6 +58,22 @@
     line-height: 1.6;
     color: #f5e5c8;
 }
+
+.pulperia_menu {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+}
+
 
 /* HISTORIA */
 

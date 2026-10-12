@@ -11,6 +11,7 @@ function PropuestaGastronomica ( opcionGastronica ) {
     const [montoTotal, setMontoTotal] = useState(0);
     const [lugaresDisponible, setLugaresDisponible] = useState(0);
     const [logo, setLogo] = useState("");
+    const [urlImagen, setUrlImagen] = useState(null);
 
     useEffect(() => {
 

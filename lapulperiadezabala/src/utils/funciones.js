@@ -166,17 +166,3 @@ export function formatearFechaDate(fecha) {
   return `${dia}/${mes}/${anio}`;
 }
 
-export function balanzaFuncionando(fechaHora, tiempoBalanzaFuncionado) {
-  if (!fechaHora) {
-    return true;
-  }
-
-  const fecha =
-    fechaHora instanceof Date
-      ? fechaHora
-      : new Date(fechaHora);
-
-  const diferenciaMs = Date.now() - fecha.getTime();
-
-  return diferenciaMs < tiempoBalanzaFuncionado;
-}

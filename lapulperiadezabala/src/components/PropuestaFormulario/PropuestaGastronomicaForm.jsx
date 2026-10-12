@@ -12,8 +12,14 @@ function obtenerFechaHoy() {
 }
 
 
-function PropuestaGastronomicaForm ( propuesta, manejarCambio, manejarSubmit, manejarCancelar ) {
+function PropuestaGastronomicaForm ( {
+    datosPropuesta, 
+    manejarCambio, 
+    manejarCambioImagen, 
+    manejarSubmit, 
+    manejarCancelar }) {
 
+    const propuesta = datosPropuesta;
     const [errores, setErrores] = useState({});
 
     function validarFormulario() {
@@ -92,19 +98,19 @@ function PropuestaGastronomicaForm ( propuesta, manejarCambio, manejarSubmit, ma
             <div className={styles.campo}>
                 <label htmlFor="fecha">Fecha:</label>
                 <input name="fecha" type="date" id="fecha"
-                    min={obtenerFechaHoy}
                     value={propuesta.fecha}
-                    onChange={(e) => manejarCambio(e)}
-                    required
+                    onChange={manejarCambio}
                 /> 
             </div>
+            {errores.fecha && (
+                <span className={styles.error}>{errores.fecha}</span>
+            )}
 
             <div className={styles.campo}>
                 <label htmlFor="tipo">Tipo:</label>
                 <select name="tipo" id="tipo" 
                     value={propuesta.tipo}
-                    onChange={(e) => manejarCambio(e)}
-                    requerid
+                    onChange={manejarCambio}
                 >
                     <option value="">Seleccione un tipo</option>
                     <option value="ASADO">Asado</option>
@@ -127,7 +133,7 @@ function PropuestaGastronomicaForm ( propuesta, manejarCambio, manejarSubmit, ma
                     type="text"
                     maxLength={30}
                     value={propuesta.descripcion}
-                    onChange={(e) => manejarCambio(e)}
+                    onChange={manejarCambio}
                     placeholder="Ej. Asado de campo"
                     required
                 />
@@ -149,7 +155,7 @@ function PropuestaGastronomicaForm ( propuesta, manejarCambio, manejarSubmit, ma
                     max="200"
                     step="1"
                     value={propuesta.capacidadTotal}
-                    onChange={(e) => manejarCambio(e)}
+                    onChange={manejarCambio}
                     required
                 />
                 {errores.capacidadTotal && (
@@ -167,7 +173,7 @@ function PropuestaGastronomicaForm ( propuesta, manejarCambio, manejarSubmit, ma
                     max="9999999"
                     step="1"
                     value={propuesta.precioMayores}
-                    onChange={(e) => manejarCambio(e)}
+                    onChange={manejarCambio}
                     required
                 />
                 {errores.precioMayores && (
@@ -185,7 +191,7 @@ function PropuestaGastronomicaForm ( propuesta, manejarCambio, manejarSubmit, ma
                     max="9999999"
                     step="1"
                     value={propuesta.precioMenores}
-                    onChange={(e) => manejarCambio(e)}
+                    onChange={manejarCambio}
                     required
                 />
                 {errores.precioMenores && (
@@ -203,11 +209,25 @@ function PropuestaGastronomicaForm ( propuesta, manejarCambio, manejarSubmit, ma
                     max={propuesta.capacidadTotal ? Number(propuesta.capacidadTotal) - 1 : undefined}
                     step="1"
                     value={propuesta.capacidadOcupada}
-                    onChange={(e) => manejarCambio(e)}
+                    onChange={manejarCambio}
                     required
                 />
                 {errores.capacidadOcupada && (
                     <span className={styles.error}>{errores.capacidadOcupada}</span>
+                )}
+            </div>
+
+            <div className={styles.campo}>
+                <label htmlFor="imagen">Imagen</label>
+                <input
+                    id="imagen"
+                    name="imagen"
+                    type="file"
+                    onChange={manejarCambioImagen}
+                    required
+                />
+                {errores.imagen && (
+                    <span className={styles.error}>{errores.imagen}</span>
                 )}
             </div>
 
