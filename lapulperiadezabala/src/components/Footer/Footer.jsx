@@ -13,9 +13,11 @@ function Footer() {
         <footer className={styles.footer}>
 
             {/* Auspiciantes */}
+            {/*
             <section className={styles.auspiciantes}>
                 <ListaAuspiciantes />
             </section>
+            */}
 
             {/* Información principal */}
             <section className={styles.informacion}>

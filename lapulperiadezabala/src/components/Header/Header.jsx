@@ -15,7 +15,11 @@ function Header() {
                     className={styles.logo}
                     alt="La Pulpería de Zabala"
                 />
-                <span className={styles.titulo}>Restaurante Típico de Campo</span>
+                <div className={styles.titulo}>
+                    <span>Restaurante</span>
+                    <span>Típico de Campo</span>
+                </div>
+
             </div>
 
             {/* Menú */}

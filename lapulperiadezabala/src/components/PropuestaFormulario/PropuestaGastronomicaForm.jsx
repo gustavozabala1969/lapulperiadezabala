@@ -100,6 +100,7 @@ function PropuestaGastronomicaForm ( {
                 <input name="fecha" type="date" id="fecha"
                     value={propuesta.fecha}
                     onChange={manejarCambio}
+                    required
                 /> 
             </div>
             {errores.fecha && (

@@ -36,12 +36,17 @@
 }
 
 .titulo {
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
     margin: 0;
-    font-size: 1.5rem;
+    padding: 0 10px;
+
+    font-size: 1.3rem;
     font-weight: 600;
+    line-height: 1.3;
     white-space: nowrap;
-    flex-shrink: 0;
 }
 
 
