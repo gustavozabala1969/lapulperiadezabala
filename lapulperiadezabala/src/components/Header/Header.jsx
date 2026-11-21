@@ -37,9 +37,31 @@ function Header() {
                     Historia
                 </a>
 
-                <a href="/admin" className={styles.link}>
-                    Admin
-                </a>
+                {/* SUBMENÚ GESTIÓN */}
+                <details className={styles.menu_gestion}>
+
+                    <summary className={styles.link}>
+                        Gestión
+                        <span className={styles.flecha}>▾</span>
+                    </summary>
+
+                    <div className={styles.submenu}>
+
+                        <a href="/adminEventos">
+                            Eventos
+                        </a>
+
+                        <a href="/adminAuspiciantes">
+                            Auspiciantes
+                        </a>
+
+                        <a href="/adminUsuarios">
+                            Usuarios
+                        </a>
+
+                    </div>
+
+                </details>
 
 
                 <a href="/auspiciantes" className={styles.link}>

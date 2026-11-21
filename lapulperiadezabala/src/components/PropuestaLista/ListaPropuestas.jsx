@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import styles from './ListaPropuestas.module.css';
 import PropuestaGastronomica from "../PropuestaGastronomica/PropuestaGastronomica";
 
+import { readEventosVigentes } from "../../services/PropuestasService";
+
 function ListaPropuestas () {
 
     const [propuestas, setPropuestas] = useState([]);
@@ -10,26 +12,19 @@ function ListaPropuestas () {
     const [error, setError] = useState("");
 
     useEffect(() => {
-        const cargarPropuestas = async() => {
-            try {
 
-                const response = await fetch('/data/propuestasGastronomicas.json');
-                if (!response.ok) {
-                    throw new Error('Error al cargar propuestas gastronómicas');
-                }
-                const listaPropuestas = await response.json();
-                setPropuestas(listaPropuestas);
+        readEventosVigentes()
+        .then((datos) => {
+            setPropuestas(datos);
+        })
+        .catch ((error) => {
+            setError(error.message);
+            console.log(error.message);
 
-            } catch (error) {
-                setError(error.message);
-                console.log(error.message);
-
-            } finally {
-                setCargando(false);
-            }
-        }
-        
-        cargarPropuestas();
+        }) 
+        .finally(() => {
+            setCargando(false);
+        });
     },[]);
     
     

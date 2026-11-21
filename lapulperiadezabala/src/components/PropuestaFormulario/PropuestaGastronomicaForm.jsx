@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styles from './PropuestaGastronomicaForm.module.css';
 
-
 function obtenerFechaHoy() {
     const hoy = new Date();
     const anio = hoy.getFullYear();
@@ -11,9 +10,11 @@ function obtenerFechaHoy() {
     return `${anio}-${mes}-${dia}`;
 }
 
+const fechaHoy = obtenerFechaHoy();
 
 function PropuestaGastronomicaForm ( {
     datosPropuesta, 
+    modoEdicion = false,
     manejarCambio, 
     manejarCambioImagen, 
     manejarSubmit, 
@@ -21,6 +22,10 @@ function PropuestaGastronomicaForm ( {
 
     const propuesta = datosPropuesta;
     const [errores, setErrores] = useState({});
+
+    const nombreImagen = propuesta.urlImagen
+        ? propuesta.urlImagen.split(/[\\/]/).pop()
+        : "";
 
     function validarFormulario() {
         const nuevosErrores = {};
@@ -90,15 +95,39 @@ function PropuestaGastronomicaForm ( {
         return Object.keys(nuevosErrores).length === 0;
     }
 
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        if (!validarFormulario()) {
+            return;
+        }
+
+        manejarSubmit(event);
+    }
 
 
     return (
-        <form className={styles.formulario} onSubmit={manejarSubmit}>
+        <form className={styles.formulario} onSubmit={handleSubmit}>
+
+            <h4>
+                {modoEdicion ? "Editar eventos" : "Agregar nuevo evento"}
+            </h4>
+
+            <div className={styles.campo}>
+                <label htmlFor="id">ID:</label>
+                <input name="id" type="text" id="id"
+                    value={propuesta.id}
+                    disabled={true}
+                    placeholder="Autoincremental Automatico"
+                /> 
+            </div>
+
 
             <div className={styles.campo}>
                 <label htmlFor="fecha">Fecha:</label>
                 <input name="fecha" type="date" id="fecha"
-                    value={propuesta.fecha}
+                    value={propuesta.fecha || ""}
+                    min={obtenerFechaHoy()}
                     onChange={manejarCambio}
                     required
                 /> 
@@ -126,7 +155,7 @@ function PropuestaGastronomicaForm ( {
 
             <div className={styles.campo}>
                 <label htmlFor="descripcion">
-                    Descripción
+                    Descripción Breve
                 </label>
                 <input
                     id="descripcion"
@@ -138,9 +167,6 @@ function PropuestaGastronomicaForm ( {
                     placeholder="Ej. Asado de campo"
                     required
                 />
-                <span className={styles.contador}>
-                    {propuesta.descripcion}
-                </span>
                 {errores.descripcion && (
                     <span className={styles.error}>{errores.descripcion}</span>
                 )}
@@ -161,6 +187,24 @@ function PropuestaGastronomicaForm ( {
                 />
                 {errores.capacidadTotal && (
                     <span className={styles.error}>{errores.capacidadTotal}</span>
+                )}
+            </div>
+
+            <div className={styles.campo}>
+                <label htmlFor="capacidadOcupada">Capacidad ocupada</label>
+                <input
+                    id="capacidadOcupada"
+                    name="capacidadOcupada"
+                    type="number"
+                    min="0"
+                    max={propuesta.capacidadTotal ? Number(propuesta.capacidadTotal) - 1 : undefined}
+                    step="1"
+                    value={propuesta.capacidadOcupada}
+                    onChange={manejarCambio}
+                    required
+                />
+                {errores.capacidadOcupada && (
+                    <span className={styles.error}>{errores.capacidadOcupada}</span>
                 )}
             </div>
 
@@ -201,50 +245,66 @@ function PropuestaGastronomicaForm ( {
             </div>
 
             <div className={styles.campo}>
-                <label htmlFor="capacidadOcupada">Capacidad ocupada</label>
-                <input
-                    id="capacidadOcupada"
-                    name="capacidadOcupada"
-                    type="number"
-                    min="0"
-                    max={propuesta.capacidadTotal ? Number(propuesta.capacidadTotal) - 1 : undefined}
-                    step="1"
-                    value={propuesta.capacidadOcupada}
-                    onChange={manejarCambio}
-                    required
-                />
-                {errores.capacidadOcupada && (
-                    <span className={styles.error}>{errores.capacidadOcupada}</span>
-                )}
-            </div>
-
-            <div className={styles.campo}>
                 <label htmlFor="imagen">Imagen</label>
                 <input
                     id="imagen"
                     name="imagen"
                     type="file"
-                    onChange={manejarCambioImagen}
-                    required
                 />
+                {/*     onChange={manejarCambioImagen}             */}
+                {propuesta.urlImagen && (
+                    <span className={styles.nombreImagen}>
+                        Imagen actual: {nombreImagen}
+                    </span>
+                )}
                 {errores.imagen && (
                     <span className={styles.error}>{errores.imagen}</span>
                 )}
             </div>
 
+            <div className={styles.campo}>
+                <label htmlFor="observaciones">
+                    Observaciones
+                </label>
+                <input
+                    id="observaciones"
+                    name="observaciones"
+                    type="text"
+                    maxLength={200}
+                    value={propuesta.observaciones}
+                    onChange={manejarCambio}
+                    placeholder="Describa el evento"
+                    required
+                />
+                {errores.observaciones && (
+                    <span className={styles.error}>{errores.observaciones}</span>
+                )}
+            </div>
+
+            <div className={styles.campo}>
+			    <label htmlFor="destacado">Destacado</label>			
+			    <input
+			        id="destacado"
+			        type="checkbox"
+			        name="destacado"
+			        checked={propuesta.destacado}
+			        onChange={manejarCambio}
+			    />
+			</div>
+
             <div className={styles.acciones}>
-                {manejarCancelar && (
+                {manejarCancelar && modoEdicion && (
                     <button 
                         type="button"
                         className={styles.botonCancelar}
                         onClick={manejarCancelar}
                     >
-                        Cancelar
+                        Cancelar Edición
                     </button>
                 )}
 
                 <button type="submit" className={styles.botonGuardar}>
-                    Guardar propuesta
+                    {modoEdicion ? "Actualizar Propuesta" : "Guardar propuesta"}
                 </button>
             </div>
         </form>

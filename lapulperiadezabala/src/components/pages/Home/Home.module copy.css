@@ -1,0 +1,93 @@
+.pulperia_home {
+    --color-fondo: #f4ead8;
+    --color-marron: #49301f;
+    --color-marron-claro: #765238;
+    --color-dorado: #bd965b;
+    --color-texto: #403328;
+
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* PORTADA */
+
+.pulperia_portada {
+    min-height: 440px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: left;
+    justify-content: center;
+    text-align: left;
+    padding: 40px 20px;
+    background:
+        linear-gradient(rgba(30, 20, 12, 0.55),
+            rgba(30, 20, 12, 0.75));
+    color: #fff3dc;
+}
+
+/*  background:
+        linear-gradient(rgba(30, 20, 12, 0.55),
+            rgba(30, 20, 12, 0.75)),
+        url('/imageness/LaPpulperia.jpg') center/cover no-repeat;
+ */
+
+.pulperia_portada_contenido {
+    max-width: 950px;
+}
+
+.pulperia_subtitulo {
+    display: block;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #e7c58b;
+}
+
+.pulperia_portada h1 {
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+}
+
+.pulperia_bajada {
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    font-style: italic;
+    line-height: 1.6;
+    color: #f5e5c8;
+}
+
+.pulperia_menu {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+}
+
+
+
+
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .pulperia_portada {
+        min-height: 380px;
+    }
+
+    .pulperia_subtitulo {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+
+}

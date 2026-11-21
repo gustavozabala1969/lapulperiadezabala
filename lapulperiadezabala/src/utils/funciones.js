@@ -45,6 +45,42 @@ export function convertirStringADate(fecha) {
     return fechaDate;
 }
 
+export function convertirFechaInput(fecha) {
+
+    if (!fecha) return "";
+
+    let fechaDate;
+
+    // Si es Timestamp de Firestore
+    if (fecha.toDate) {
+        fechaDate = fecha.toDate();
+    }
+    // Si es una fecha en formato DD/MM/YYYY
+    else if (typeof fecha === "string" && fecha.includes("/")) {
+        const [dia, mes, anio] = fecha.split("/");
+
+        fechaDate = new Date(
+            Number(anio),
+            Number(mes) - 1,
+            Number(dia)
+        );
+    }
+    // Si viene en otro formato reconocido, por ejemplo YYYY-MM-DD
+    else {
+        fechaDate = new Date(fecha);
+    }
+
+    if (isNaN(fechaDate.getTime())) {
+        return "";
+    }
+
+    const anio = fechaDate.getFullYear();
+    const mes = String(fechaDate.getMonth() + 1).padStart(2, "0");
+    const dia = String(fechaDate.getDate()).padStart(2, "0");
+
+    return `${anio}-${mes}-${dia}`;
+}
+
 
 export function obtenerDiaSemana(fecha) {
   const fechaDate = new Date(convertirStringADate(fecha));
@@ -166,3 +202,18 @@ export function formatearFechaDate(fecha) {
   return `${dia}/${mes}/${anio}`;
 }
 
+export function convertirFechaFormatoDDMMYYYY(fecha) {
+    if (!fecha) return "";
+
+    const fechaDate = fecha.toDate
+        ? fecha.toDate()
+        : new Date(fecha);
+
+    if (isNaN(fechaDate.getTime())) return "";
+
+    const dia = String(fechaDate.getDate()).padStart(2, "0");
+    const mes = String(fechaDate.getMonth() + 1).padStart(2, "0");
+    const anio = fechaDate.getFullYear();
+
+    return `${dia}/${mes}/${anio}`;
+}

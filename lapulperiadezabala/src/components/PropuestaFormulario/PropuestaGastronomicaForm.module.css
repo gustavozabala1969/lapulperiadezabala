@@ -10,6 +10,17 @@
     font-family: Georgia, "Times New Roman", serif;
 }
 
+.titulo {
+    min-width: 145px;
+    padding: 11px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
 
 .grilla {
     display: grid;
@@ -109,6 +120,20 @@
 
 .botonCancelar:hover {
     background-color: #d9cbb6;
+}
+
+.formulario input:disabled,
+.formulario select:disabled,
+.formulario textarea:disabled {
+    background-color: #e5e5e5;
+    color: #777;
+    border-color: #ccc;
+    opacity: 0.75;
+    cursor: not-allowed;
+}
+
+.formulario input:disabled::placeholder {
+    color: #999;
 }
 
 @media (max-width: 600px) {

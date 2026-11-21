@@ -3,21 +3,25 @@ import PropuestaGastronomicaForm from "../PropuestaFormulario/PropuestaGastronom
 
 import styles from './PropuestaFormContenedor.module.css';
 
+const estadoInicialPropuesta =  
+    {
+        fecha : "",
+        tipo : "",
+        descripcion: "",
+        capacidadTotal: "",
+        precioMayores: "",
+        precioMenores: "",
+        capacidadOcupada: "0",
+        urlImagen: "",
+        destacado: ""
+    };
+
+
 function PropuestaFormContenedor() {
 
-    const [datosFormPropuesta, setDatosFormPropuesta] = useState( 
-        {
-            fecha : "",
-            tipo : "",
-            descripcion: "",
-            capacidadTotal: "",
-            precioMayores: "",
-            precioMenores: "",
-            capacidadOcupada: "0",
-            urlImagen: "",
-            destacado: ""
-        }
-    )
+    const [datosFormPropuesta, setDatosFormPropuesta] = useState(null);
+
+    setDatosFormPropuesta(estadoInicialPropuesta);
 
     const [imagenFile, setImagenFile] = useState(null);
 
@@ -92,12 +96,13 @@ function PropuestaFormContenedor() {
     return (
         <>
             <div className={styles.encabezado}>
-                <h3>Agregar Nueva Opción Gastronómica</h3>
+                <h4>Alta Opción Gastronómica</h4>
                 <p>Complete los datos de la propuesta.</p>
             </div>
 
             <PropuestaGastronomicaForm
                 datosPropuesta={datosFormPropuesta} 
+                modoEdicion={false} 
                 manejarCambio={manejarCambio}
                 manejarCambioImagen={manejarCambioImagen} 
                 manejarSubmit={manejarSubmit}

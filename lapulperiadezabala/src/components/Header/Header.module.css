@@ -108,3 +108,71 @@
     background-color: #d4a574;
     color: #2d2925;
 }
+
+/* Menú desplegable Gestión */
+
+.menu_gestion {
+    position: relative;
+}
+
+/* Título del menú */
+.menu_gestion summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Ocultar flecha original del navegador */
+.menu_gestion summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Flecha */
+.flecha {
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+}
+
+.menu_gestion[open] .flecha {
+    transform: rotate(180deg);
+}
+
+/* Submenú */
+.submenu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+
+    min-width: 210px;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #49301f;
+    border: 1px solid #bd965b;
+    border-radius: 10px;
+    padding: 8px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+    z-index: 1000;
+}
+
+/* Opciones */
+.submenu a {
+    display: block;
+    padding: 12px 15px;
+
+    color: #fff3dc;
+    text-decoration: none;
+    border-radius: 6px;
+
+    transition: background-color 0.2s ease;
+}
+
+/* Hover */
+.submenu a:hover {
+    background-color: #765238;
+    color: #e7c58b;
+}

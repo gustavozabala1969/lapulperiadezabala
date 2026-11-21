@@ -1,148 +1,268 @@
+
 .pulperia_home {
     --color-fondo: #f4ead8;
     --color-marron: #49301f;
     --color-marron-claro: #765238;
     --color-dorado: #bd965b;
     --color-texto: #403328;
+    --color-crema: #fff8ec;
 
     background-color: var(--color-fondo);
     color: var(--color-texto);
     font-family: Georgia, 'Times New Roman', serif;
+    overflow: hidden;
 }
 
-/* PORTADA */
+/* =========================
+   PORTADA
+   ========================= */
 
 .pulperia_portada {
-    min-height: 240px;
+    min-height: 260px;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 60px 20px;
+    padding: 16px 16px;
+
     background:
-        linear-gradient(rgba(30, 20, 12, 0.55),
-            rgba(30, 20, 12, 0.75));
-    color: #fff3dc;
-}
+        radial-gradient(
+            ellipse at center,
+            rgba(118, 82, 56, 0.35),
+            transparent 70%
+        ),
+        linear-gradient(
+            135deg,
+            #342115,
+            #63452d 55%,
+            #392719
+        );
 
-/*  background:
-        linear-gradient(rgba(30, 20, 12, 0.55),
-            rgba(30, 20, 12, 0.75)),
-        url('/imageness/LaPpulperia.jpg') center/cover no-repeat;
- */
-
-.pulperia_portada_contenido {
-    max-width: 850px;
-}
-
-.pulperia_subtitulo {
-    display: block;
-    font-size: 1rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    color: #e7c58b;
-}
-
-.pulperia_portada h1 {
-    font-size: clamp(2.8rem, 7vw, 5.5rem);
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
-}
-
-.pulperia_bajada {
-    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-    font-style: italic;
-    line-height: 1.6;
-    color: #f5e5c8;
-}
-
-.pulperia_menu {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo {
-    max-width: 100%;
-    max-height: 150px;
-    object-fit: contain;
-}
-
-
-/* HISTORIA */
-
-.pulperia_historia {
-    padding: 70px 20px;
-}
-
-.pulperia_contenedor {
-    max-width: 950px;
-    margin: auto;
-}
-
-.pulperia_etiqueta {
-    display: block;
+    color: var(--color-crema);
     text-align: center;
-    color: var(--color-marron-claro);
+    position: relative;
+}
+
+/* Decoración superior e inferior */
+
+/* 
+.pulperia_portada::before,
+.pulperia_portada::after {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: rgba(189, 150, 91, 0.5);
+}
+
+.pulperia_portada::before {
+    top: 35px;
+}
+
+.pulperia_portada::after {
+    bottom: 35px;
+}
+*/
+
+.portada_contenido {
+    width: 100%;
+    max-width: 950px;
+    animation: aparecer 0.8s ease-out;
+}
+
+.portada_etiqueta {
+    display: block;
+    color: #e7c58b;
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-size: 0.85rem;
-    font-weight: bold;
+    font-size: 0.9rem;
     margin-bottom: 15px;
 }
 
-.pulperia_historia h2 {
-    text-align: center;
-    color: var(--color-marron);
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    margin-bottom: 35px;
+.pulperia_portada h1 {
+    font-size: clamp(2.8rem, 7vw, 3.5rem);
+    font-weight: bold;
+    line-height: 1.15;
+    margin: 0;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
 }
 
-.pulperia_historia p {
-    font-size: 1.15rem;
-    line-height: 1.9;
-    text-align: justify;
-    margin-bottom: 22px;
+.pulperia_portada h1 span {
+    display: block;
+    color: #e7c58b;
+    font-size: 0.62em;
+    margin-top: 10px;
 }
 
-.pulperia_historia strong {
-    color: var(--color-marron);
-}
-
-.pulperia_separador {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--color-dorado);
-    margin: 45px 0;
-}
-
-.pulperia_cierre {
-    background-color: #e9d7b8;
-    border-left: 5px solid var(--color-dorado);
-    padding: 20px 25px;
-    margin-top: 35px;
+.portada_bajada {
+    max-width: 700px;
+    margin: 20px auto 0;
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    line-height: 1.8;
     font-style: italic;
+    color: #f5e5c8;
 }
 
-/* FRASE FINAL */
+.portada_separador {
+    margin-top: 35px;
+    color: var(--color-dorado);
+    font-size: 1.8rem;
+}
+
+
+/* =========================
+   SECCIÓN EVENTOS
+   ========================= */
+
+.seccion_eventos {
+    padding: 20px 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.seccion_encabezado {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 35px;
+}
+
+.seccion_etiqueta {
+    display: block;
+    color: var(--color-marron-claro);
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.seccion_encabezado h2 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    color: var(--color-marron);
+    margin: 0 0 20px;
+}
+
+.seccion_encabezado h3 {
+    font-size: clamp(1.2rem, 5vw, 2.0rem);
+    color: var(--color-marron);
+    margin: 0 0 10px;
+}
+
+.seccion_encabezado p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--color-marron-claro);
+    margin: 0;
+}
+
+.lista_eventos {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 320px), 1fr)
+    );
+    gap: 30px;
+    align-items: stretch;
+}
+
+.lista_eventos > * {
+    min-width: 0;
+}
+
+.mensaje {
+    text-align: center;
+    padding: 35px;
+    font-size: 1.15rem;
+    color: var(--color-marron-claro);
+    grid-column: 1 / -1;
+}
+
+.mensaje_error {
+    text-align: center;
+    padding: 35px;
+    color: #9b2c2c;
+    grid-column: 1 / -1;
+}
+
+
+/* =========================
+   GASTRONOMÍA
+   ========================= */
+
+.seccion_gastronomia {
+    padding: 80px 24px;
+    background-color: #e9dcc5;
+    border-top: 1px solid rgba(73, 48, 31, 0.1);
+    border-bottom: 1px solid rgba(73, 48, 31, 0.1);
+}
+
+.gastronomia_contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pulperia_menu {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.gastronomia_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px 15px;
+    min-height: 200px;
+
+    background-color: rgba(255, 248, 236, 0.75);
+    border: 1px solid rgba(118, 82, 56, 0.15);
+    border-radius: 18px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.gastronomia_item:hover {
+    transform: translateY(-7px);
+    background-color: var(--color-crema);
+    box-shadow: 0 12px 25px rgba(73, 48, 31, 0.12);
+}
+
+.gastronomia_item img {
+    width: 100%;
+    max-width: 180px;
+    height: 140px;
+    object-fit: contain;
+}
+
+.gastronomia_item span {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-marron);
+}
+
+
+/* =========================
+   FRASE FINAL
+   ========================= */
 
 .pulperia_frase {
-    background-color: var(--color-marron);
-    color: #f5e5c8;
+    padding: 70px 24px;
     text-align: center;
-    padding: 65px 25px;
+    background-color: var(--color-marron);
+    color: var(--color-crema);
 }
 
-.pulperia_frase blockquote {
-    max-width: 800px;
-    margin: auto;
-    font-size: clamp(1.3rem, 3vw, 2rem);
+.pulperia_frase p {
+    max-width: 850px;
+    margin: 0 auto;
+    font-size: clamp(1.4rem, 3vw, 2.3rem);
     font-style: italic;
     line-height: 1.6;
 }
@@ -150,34 +270,110 @@
 .pulperia_frase span {
     display: block;
     margin-top: 25px;
-    color: var(--color-dorado);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
+    color: #e7c58b;
+    letter-spacing: 2px;
 }
 
-/* RESPONSIVE */
 
-@media (max-width: 768px) {
-    .pulperia_portada {
-        min-height: 380px;
+/* =========================
+   ANIMACIÓN
+   ========================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
 
-    .pulperia_subtitulo {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .pulperia_portada {
+        min-height: 420px;
+        padding: 65px 20px;
+    }
+
+    .pulperia_portada::before,
+    .pulperia_portada::after {
+        left: 5%;
+        right: 5%;
+    }
+
+    .portada_etiqueta {
         font-size: 0.75rem;
         letter-spacing: 2px;
     }
 
-    .pulperia_historia {
-        padding: 45px 20px;
+    .portada_bajada {
+        font-size: 1.1rem;
     }
 
-    .pulperia_historia p {
+    .seccion_eventos,
+    .seccion_gastronomia {
+        padding: 55px 20px;
+    }
+
+    .seccion_encabezado {
+        margin-bottom: 30px;
+    }
+
+    .pulperia_menu {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+        margin-top: 35px;
+    }
+
+    .gastronomia_item {
+        min-height: 170px;
+        padding: 15px;
+    }
+
+    .gastronomia_item img {
+        height: 115px;
+    }
+
+    .gastronomia_item span {
         font-size: 1.05rem;
-        text-align: left;
     }
 
     .pulperia_frase {
-        padding: 45px 20px;
+        padding: 50px 20px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .pulperia_portada h1 {
+        font-size: 2.5rem;
+    }
+
+    .pulperia_menu {
+        gap: 10px;
+    }
+
+    .gastronomia_item img {
+        height: 100px;
+    }
+}
+
+/* Respeta usuarios que prefieren menos animaciones */
+
+@media (prefers-reduced-motion: reduce) {
+    .portada_contenido {
+        animation: none;
+    }
+
+    .gastronomia_item {
+        transition: none;
     }
 }
