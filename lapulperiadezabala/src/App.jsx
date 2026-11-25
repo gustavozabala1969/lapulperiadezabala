@@ -5,6 +5,7 @@ import Home from './components/pages/Home/Home';
 import Historia from './components/pages/Historia/Historia';
 import ListaPropuestas from './components/PropuestaLista/ListaPropuestas';
 import ListaAuspiciantes from './components/AuspiciantesLista/ListaAuspiciantes';
+import Cart from "./components/Cart/Cart";
 import AdminPropuestas from './components/Gestion/AdminPropuestas';
 import AdminAuspiciantes from './components/Gestion/AdminAuspiciantes';
 import AdminUsuarios from './components/Gestion/AdminUsuarios';
@@ -23,6 +24,7 @@ function App() {
               <Route path="/reservas" element={<ListaPropuestas />} />
               <Route path="/historia" element={<Historia />} />
               <Route path="/auspiciantes" element={<ListaAuspiciantes />} />
+              <Route path="/carrito" element={<Cart />} />
               {/* <Route path="/admin" element={<PropuestaFormContenedor />} /> */}
               <Route path="/adminEventos" element={<AdminPropuestas />} />
               <Route path="/adminUsuarios" element={<AdminUsuarios />} />

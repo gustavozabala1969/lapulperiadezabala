@@ -94,19 +94,50 @@
    ========================= */
 
 .carrito {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
     margin-left: 8px;
+    padding: 9px 16px;
 
     border: 2px solid #d4a574;
     border-radius: 8px;
 
     color: #d4a574;
-
-    padding: 9px 16px;
 }
 
 .carrito:hover {
     background-color: #d4a574;
     color: #2d2925;
+}
+
+.iconoCarrito {
+    font-size: 1.1rem;
+}
+
+.cantidadCarrito {
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 21px;
+    height: 21px;
+    padding: 0 5px;
+
+    background-color: #bd965b;
+    color: #2d2925;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    border-radius: 50%;
+    border: 2px solid #2d2925;
 }
 
 /* Menú desplegable Gestión */

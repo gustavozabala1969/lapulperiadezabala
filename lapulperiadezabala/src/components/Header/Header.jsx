@@ -1,8 +1,11 @@
 import styles from './Header.module.css';
+import { useCart } from '../../context/CartContext';
 
 function Header() {
 
     const logoLaPulperia = "/imagenes/LaPulperia.png";
+    const { getCartQuantity } = useCart();
+    const totalItems = getCartQuantity();
 
     return (
         <header className={styles.header}>
@@ -30,7 +33,7 @@ function Header() {
                 </a>
 
                 <a href="/reservas" className={styles.link}>
-                    Reservas
+                    Eventos
                 </a>
 
                 <a href="/historia" className={styles.link}>
@@ -72,7 +75,9 @@ function Header() {
                     href="/carrito"
                     className={`${styles.link} ${styles.carrito}`}
                 >
-                    🛒 Carrito
+                    <span className={styles.iconoCarrito}>🛒</span>
+                    <span>Carrito</span>
+                    {totalItems > 0 && <span className={styles.cantidadCarrito}>{totalItems}</span>}
                 </a>
 
             </nav>
