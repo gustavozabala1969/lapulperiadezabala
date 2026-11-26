@@ -17,17 +17,27 @@ export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
     const addToCart = (product, cantMayores, cantMenores) => {
+
+        if (cantMayores + cantMenores === 0) return;
+
+        const idProducto = product.id;
         const itemInCart = cart.find(item => item.id === product.id);
+
         if (itemInCart) {
             const updatedCart = cart.map(item =>
                 item.id === product.id
-                    ? { ...item, cantMayores: item.cantMayores + cantMayores, cantMenores: item.cantMenores + cantMenores }
+                    ? { ...item, 
+                        cantMayores: item.cantMayores + cantMayores, 
+                        cantMenores: item.cantMenores + cantMenores }
                     : item
             );
             setCart(updatedCart);
+            console.log("Se agrego porque el item existia. ");
         } else {
             setCart(prevCart => [...prevCart, { ...product, cantMayores, cantMenores }]);
-        }
+            console.log("Se agrego uno nuevo: ");
+            console.log({product});
+        }   
     };
 
     const clearCart = () => {
@@ -36,13 +46,13 @@ export const CartProvider = ({ children }) => {
 
     // Retorna la cant de Mayores de un id.Producto
     const getCantMayores = (productId) => {
-        const itemInCart = cart.find(item => item.id !== productId);
+        const itemInCart = cart.find(item => item.id === productId);
         return itemInCart ? itemInCart.cantMayores : 0;
     };
 
     // Retorna la cant de Menores de un id.Producto
     const getCantMenores = (productId) => {
-        const itemInCart = cart.find(item => item.id !== productId);
+        const itemInCart = cart.find(item => item.id === productId);
         return itemInCart ? itemInCart.cantMenores : 0;
     };
 

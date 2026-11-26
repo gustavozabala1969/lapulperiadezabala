@@ -6,9 +6,12 @@ import { buscarLogo, obtenerDiaSemana, obtenerNumeroDia, obtenerMes, formatearFe
 
 import styles from './PropuestaGastronomica.module.css';
 
-function PropuestaGastronomica(opcionGastronomica) {
+function PropuestaGastronomica( {id, fecha, capacidadTotal, capacidadOcupada, tipo, descripcion,
+    precioMayores, precioMenores}) {
 
-    const thisOpcionGastronomica = { ...opcionGastronomica}; 
+    // const thisOpcionGastronomica = { ...opcionGastronomica}; 
+    const thisOpcionGastronomica = { id, fecha, capacidadTotal, capacidadOcupada, tipo, descripcion,
+    precioMayores, precioMenores };
 
     const [contadorMayores, setCantidadMayores] = useState(0);
     const [contadorMenores, setCantidadMenores] = useState(0);
@@ -33,11 +36,11 @@ function PropuestaGastronomica(opcionGastronomica) {
         setLugaresDisponible(disponibles);
         setLogo(buscarLogo(thisOpcionGastronomica.tipo));
 
-    }, [opcionGastronomica]);
+    }, [thisOpcionGastronomica]);
 
     useEffect(() => {
 
-        const wCantidadTotal = contadorMenores +contadorMayores;
+        const wCantidadTotal = contadorMenores + contadorMayores;
         setCantidadTotal(wCantidadTotal);
 
         const totalMenores = contadorMenores * parseInt(thisOpcionGastronomica.precioMenores);

@@ -230,7 +230,7 @@ function AdminPropuestas () {
     return (
         <>
         <section className={styles.seccion}>
-            <h4 className={styles.titulo}>Administracion de Opciones Gastronomicas</h4>
+            <h4 className={styles.titulo}>Administracion de Eventos Gastronomicas</h4>
             
             <div>
 

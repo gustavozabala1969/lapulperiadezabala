@@ -1,14 +1,11 @@
-import React from 'react';
-import { useCart } from '../../context/CartContext'; // 1. Importamos el hook
+import { useCart } from "../../context/CartContext";
 import { Link } from 'react-router-dom'; // Importamos Link para la navegación
 
 const Cart = () => {
 
     // 2. Obtenemos el estado 'cart' y las funciones que necesitemos del  contexto
-    const { cart, getCartQuantity, clearCart, getCartTotal } = useCart();
-
-    // const totalItems = getCartQuantity();
-
+    const { cart, clearCart, getCartTotal, removeItem } = useCart();
+    
     // Si el carrito está vacío, mostramos un mensaje
     if (cart.length === 0) {
         return (
@@ -17,7 +14,7 @@ const Cart = () => {
                 <p>Agrega productos para continuar la compra.</p>
                 <br></br>
                 <Link to="/reservas" className="btn-volver">
-                    Ver Eventos
+                    Volver a Eventos
                 </Link>
                 <br></br>
                 <br></br>
