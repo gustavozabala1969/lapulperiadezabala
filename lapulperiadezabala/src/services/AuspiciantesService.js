@@ -1,11 +1,11 @@
 import { getDocs, collection, query, where, orderBy, Timestamp } from 'firebase/firestore';
 import { db } from '../firestore/config';
 
-const propuestasDB = collection(db, "auspiciantes");
+const auspiciantesDB = collection(db, "auspiciantes");
 
 export const readAuspiciantes = () => {
     
-    return getDocs(propuestasDB).then((resp) => {
+    return getDocs(auspiciantesDB).then((resp) => {
 
             return resp.docs.map((docu) => {
                 const datos = docu.data();

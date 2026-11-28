@@ -178,3 +178,26 @@
     line-height: 1.3;
     color: #555;
 }
+
+.destacado {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 8px;
+
+    background-color: #f5e6c8;
+    color: #8a6428;
+
+    border: 1px solid #bd965b;
+    border-radius: 12px;
+
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+.destacado i {
+    font-size: 0.75rem;
+    color: #bd965b;
+}

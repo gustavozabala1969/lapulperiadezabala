@@ -1,5 +1,8 @@
+
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useCart } from '../../context/cartContext';
 import styles from './Header.module.css';
-import { useCart } from '../../context/CartContext';
 
 function Header() {
 
@@ -7,42 +10,48 @@ function Header() {
     const { getCartQuantity } = useCart();
     const totalItems = getCartQuantity();
 
+    const [menuGestionAbierto, setMenuGestionAbierto] = useState(false);
+
+    const cerrarMenuGestion = () => {
+        setMenuGestionAbierto(false);
+    };
+
     return (
         <header className={styles.header}>
 
-            {/* Parte izquierda */}
             <div className={styles.identidad}>
 
                 <img
-                    src={logoLaPulperia || null} 
+                    src={logoLaPulperia}
                     className={styles.logo}
                     alt="La Pulpería de Zabala"
                 />
+
                 <div className={styles.titulo}>
-                    <span>Restaurante</span>
-                    <span>Típico de Campo</span>
+                    <span>Restaurante Típico de Campo</span>
                 </div>
 
             </div>
 
-            {/* Menú */}
             <nav className={styles.nav}>
 
-                <a href="/home" className={styles.link}>
+                <Link to="/home" className={styles.link}>
                     Inicio
-                </a>
+                </Link>
 
-                <a href="/reservas" className={styles.link}>
+                <Link to="/reservas" className={styles.link}>
                     Eventos
-                </a>
+                </Link>
 
-                <a href="/historia" className={styles.link}>
+                <Link to="/historia" className={styles.link}>
                     Historia
-                </a>
+                </Link>
 
-                {/* SUBMENÚ GESTIÓN */}
-                <details className={styles.menu_gestion}>
-
+                <details
+                    className={styles.menu_gestion}
+                    open={menuGestionAbierto}
+                    onToggle={(e) => setMenuGestionAbierto(e.currentTarget.open)}
+                >
                     <summary className={styles.link}>
                         Gestión
                         <span className={styles.flecha}>▾</span>
@@ -50,35 +59,38 @@ function Header() {
 
                     <div className={styles.submenu}>
 
-                        <a href="/adminEventos">
+                        <Link to="/adminEventos" onClick={cerrarMenuGestion}>
                             Eventos
-                        </a>
+                        </Link>
 
-                        <a href="/adminAuspiciantes">
+                        <Link to="/adminAuspiciantes" onClick={cerrarMenuGestion}>
                             Auspiciantes
-                        </a>
+                        </Link>
 
-                        <a href="/adminUsuarios">
+                        <Link to="/adminUsuarios" onClick={cerrarMenuGestion}>
                             Usuarios
-                        </a>
+                        </Link>
 
                     </div>
-
                 </details>
 
-
-                <a href="/auspiciantes" className={styles.link}>
+                <Link to="/auspiciantes" className={styles.link}>
                     Auspiciantes
-                </a>
+                </Link>
 
-                <a
-                    href="/carrito"
+                <Link
+                    to="/carrito"
                     className={`${styles.link} ${styles.carrito}`}
                 >
                     <span className={styles.iconoCarrito}>🛒</span>
                     <span>Carrito</span>
-                    {totalItems > 0 && <span className={styles.cantidadCarrito}>{totalItems}</span>}
-                </a>
+
+                    {totalItems > 0 && (
+                        <span className={styles.cantidadCarrito}>
+                            {totalItems}
+                        </span>
+                    )}
+                </Link>
 
             </nav>
 

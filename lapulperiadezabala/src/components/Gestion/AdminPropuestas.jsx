@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { Timestamp } from "firebase/firestore";
 
 import { buscarLogo, convertirFechaInput, convertirFechaFormatoDDMMYYYY } from '../../utils/funciones';
@@ -10,24 +10,24 @@ import PropuestaGastronomicaForm from "../PropuestaFormulario/PropuestaGastronom
 
 import styles from './AdminPropuestas.module.css';
 
-const estadoInicialPropuesta =  
-    {
-        id:"",
-        fecha : "",
-        tipo : "",
-        descripcion: "",
-        capacidadTotal: "",
-        capacidadOcupada: "",
-        precioMayores: "",
-        precioMenores: "",
-        urlImagen: "",
-        observaciones: "",
-        destacado: false
-    };
+const estadoInicialPropuesta =
+{
+    id: "",
+    fecha: "",
+    tipo: "",
+    descripcion: "",
+    capacidadTotal: "",
+    capacidadOcupada: "",
+    precioMayores: "",
+    precioMenores: "",
+    urlImagen: "",
+    observaciones: "",
+    destacado: false
+};
 
 
 
-function AdminPropuestas () {
+function AdminPropuestas() {
 
     const [propuestas, setPropuestas] = useState([]);
     const [cargando, setCargando] = useState(true);
@@ -39,7 +39,7 @@ function AdminPropuestas () {
 
     useEffect(() => {
 
-        const cargarEventos = async() => {
+        const cargarEventos = async () => {
             try {
                 const datos = await readEventos();
                 setPropuestas(datos);
@@ -51,7 +51,7 @@ function AdminPropuestas () {
         };
 
         cargarEventos();
-    },[]);
+    }, []);
 
     useEffect(() => {
         if (propuestaAEditar) {
@@ -71,7 +71,7 @@ function AdminPropuestas () {
         } else {
             setDatosFormPropuesta(estadoInicialPropuesta);
         }
-    },[propuestaAEditar]);
+    }, [propuestaAEditar]);
 
     const [imagenFile, setImagenFile] = useState(null);
 
@@ -106,8 +106,8 @@ function AdminPropuestas () {
         setPropuestaAEditar(null);
     }
 
-    const manejarSubmit = async (evento) => { 
-        evento.preventDefault(); 
+    const manejarSubmit = async (evento) => {
+        evento.preventDefault();
 
         // Validamos que el usuario haya seleccionado una imagen // 
         /*
@@ -168,15 +168,15 @@ function AdminPropuestas () {
         } */
 
 
-        const urlImagenLogo = buscarLogo(datosFormPropuesta.tipo);     
+        const urlImagenLogo = buscarLogo(datosFormPropuesta.tipo);
         const fechaTimestamp = Timestamp.fromDate(
-                new Date(
-                    Number(datosFormPropuesta.fecha.substring(0, 4)),
-                    Number(datosFormPropuesta.fecha.substring(5, 7)) - 1,
-                    Number(datosFormPropuesta.fecha.substring(8, 10))
-                ));
+            new Date(
+                Number(datosFormPropuesta.fecha.substring(0, 4)),
+                Number(datosFormPropuesta.fecha.substring(5, 7)) - 1,
+                Number(datosFormPropuesta.fecha.substring(8, 10))
+            ));
         // Agregamos la URL obtenida //
-        const datosPropuestaCompleto = { 
+        const datosPropuestaCompleto = {
             ...datosFormPropuesta,
             capacidadTotal: Number(datosFormPropuesta.capacidadTotal),
             capacidadOcupada: Number(datosFormPropuesta.capacidadOcupada),
@@ -184,10 +184,10 @@ function AdminPropuestas () {
             precioMenores: Number(datosFormPropuesta.precioMenores),
             fecha: fechaTimestamp,
             urlImagen: urlImagenLogo,
-        }; 
+        };
 
         // // Por el momento hacemos un console.log //  // 
-        console.log('Enviando los siguientes datos COMPLETOS a la API:', datosPropuestaCompleto); 
+        console.log('Enviando los siguientes datos COMPLETOS a la API:', datosPropuestaCompleto);
         // 
         try {
             if (propuestaAEditar) {
@@ -200,9 +200,9 @@ function AdminPropuestas () {
                 }
                 setPropuestas((prev) =>
                     prev.map((propuesta) =>
-                        propuesta.id === eventoActualizado.id 
-                            ? eventoActualizadoLista 
-                            : propuesta 
+                        propuesta.id === eventoActualizado.id
+                            ? eventoActualizadoLista
+                            : propuesta
                     )
                 );
                 setPropuestaAEditar(null);
@@ -215,9 +215,15 @@ function AdminPropuestas () {
                     return
                 }
 
-                setPropuestas((prev) => [...prev, eventoCreado]);
+                
+                const fechaFormateada = convertirFechaFormatoDDMMYYYY(fechaTimestamp);
+                const eventoActualizadoLista = {
+                    ...datosFormPropuesta,
+                    fecha: fechaFormateada
+                }
+                setPropuestas((prev) => [...prev, eventoActualizadoLista]);
                 setDatosFormPropuesta(estadoInicialPropuesta);
-                alert("Se ha creado el evento correctamente. Id:"+eventoCreado.id) ;
+                alert("Se ha creado el evento correctamente. Id:" + eventoCreado.id);
             }
         } catch (error) {
             console.error(error);
@@ -225,48 +231,58 @@ function AdminPropuestas () {
         }
     }
 
+    const manejarDelete = async (id) => {
+        const confirmacion = window.confirm("¿Está seguro de que desea eliminar este producto?");
+        if (confirmacion) {
+            const docRef = doc(db, "eventos", id);
+            await deleteDoc(docRef);
+                setPropuestas(propuestas.filter(evento => evento.id !== id));
+            alert("Evento Gastronomico eliminado.");
+        }
+    }
+
     const modoEdicion = Boolean(propuestaAEditar);
 
     return (
         <>
-        <section className={styles.seccion}>
-            <h4 className={styles.titulo}>Administracion de Eventos Gastronomicas</h4>
-            
-            <div>
+            <section className={styles.seccion}>
+                <h4 className={styles.titulo}>Administración de Eventos Gastronómicos</h4>
 
-                {cargando && (
-                    <p>Cargando datos .... </p>
-                )}
-                {!cargando && !error==="" && (
-                    <p>Error al buscar información de propuestas gastronómicas !! </p>
-                )}
-                {!cargando && error==="" && (
-                    <>
-                    {mostrarFormulario && (
-                        {/* <PropuestaFormContenedor propuesta={propuestaSeleccionada} /> */}
+                <div>
+
+                    {cargando && (
+                        <p>Cargando datos .... </p>
                     )}
-                    <PropuestaGastronomicaForm
-                        datosPropuesta={datosFormPropuesta} 
-                        modoEdicion={modoEdicion} 
-                        manejarCambio={manejarCambio}
-                        manejarCambioImagen={manejarCambioImagen} 
-                        manejarSubmit={manejarSubmit}
-                        manejarCancelar={manejarCancelar}
-                    />
+                    {!cargando && !error === "" && (
+                        <p>Error al buscar información de propuestas gastronómicas !! </p>
+                    )}
+                    {!cargando && error === "" && (
+                        <>
+                            {mostrarFormulario && (
+                                {/* <PropuestaFormContenedor propuesta={propuestaSeleccionada} /> */ }
+                            )}
+                            <PropuestaGastronomicaForm
+                                datosPropuesta={datosFormPropuesta}
+                                modoEdicion={modoEdicion}
+                                manejarCambio={manejarCambio}
+                                manejarCambioImagen={manejarCambioImagen}
+                                manejarSubmit={manejarSubmit}
+                                manejarCancelar={manejarCancelar}
+                            />
 
 
-                    <AdminPropuestaListado
-                        propuestas={propuestas}
-                        onEditar={manejarEditar}
-                        onEliminar={(propuesta) => {
-                            console.log("Eliminar:", propuesta);
-                            eliminarPropuesta(propuesta.id);
-                        }}
-                    />
-                    </>
-                )}
-            </div>
-        </section>
+                            <AdminPropuestaListado
+                                propuestas={propuestas}
+                                onEditar={manejarEditar}
+                                onEliminar={(propuesta) => {
+                                    console.log("Eliminar:", propuesta);
+                                    manejarDelete(propuesta.id);
+                                }}
+                            />
+                        </>
+                    )}
+                </div>
+            </section>
         </>
     );
 }

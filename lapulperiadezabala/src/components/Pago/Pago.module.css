@@ -1,0 +1,281 @@
+
+.contenedor {
+    width: 92%;
+    max-width: 1150px;
+    margin: 40px auto;
+    color: #403328;
+}
+
+.titulo {
+    font-family: Georgia, serif;
+    color: #49301f;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    color: #765238;
+    margin-bottom: 30px;
+}
+
+.contenido {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 30px;
+    align-items: start;
+}
+
+/* FORMULARIO */
+
+.formulario {
+    background: #fff;
+    border: 1px solid #e4d8c7;
+    border-radius: 10px;
+    padding: 28px;
+    box-shadow: 0 3px 10px rgba(73, 48, 31, 0.06);
+}
+
+.formulario h2,
+.opcionesPago h2 {
+    font-family: Georgia, serif;
+    color: #49301f;
+    font-size: 22px;
+    margin-bottom: 22px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.campo label {
+    font-weight: 600;
+    color: #49301f;
+    font-size: 14px;
+}
+
+.campo input {
+    width: 100%;
+    border: 1px solid #d8c8b2;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: #403328;
+    outline: none;
+    background: #fff;
+}
+
+.campo input:focus {
+    border-color: #bd965b;
+    box-shadow: 0 0 0 3px rgba(189, 150, 91, 0.15);
+}
+
+/* MEDIOS DE PAGO */
+
+.opcionesPago {
+    margin-top: 35px;
+}
+
+.opcionesPago > p {
+    color: #765238;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.opcionPago {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: #fdfaf5;
+    border: 1px solid #e4d8c7;
+    border-radius: 8px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #49301f;
+}
+
+.opcionPago:hover {
+    border-color: #bd965b;
+    background: #f4ead8;
+}
+
+.iconoPago {
+    font-size: 25px;
+}
+
+.opcionPago > span:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.opcionPago strong {
+    font-size: 14px;
+}
+
+.opcionPago small {
+    color: #765238;
+    font-size: 12px;
+}
+
+.flecha {
+    font-size: 25px;
+    color: #bd965b;
+}
+
+/* BOTONES */
+
+.botonConfirmar {
+    display: block;
+    width: 100%;
+    margin-top: 28px;
+    padding: 14px;
+    border: none;
+    border-radius: 7px;
+    background: #49301f;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.botonConfirmar:hover {
+    background: #765238;
+}
+
+.volverCarrito {
+    display: block;
+    margin-top: 18px;
+    text-align: center;
+    color: #765238;
+    font-size: 14px;
+}
+
+/* RESUMEN */
+
+.resumen {
+    background: #f4ead8;
+    border: 1px solid #e0ceb3;
+    border-radius: 10px;
+    padding: 25px;
+    position: sticky;
+    top: 25px;
+    box-shadow: 0 4px 14px rgba(73, 48, 31, 0.08);
+}
+
+.resumen h2 {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    color: #49301f;
+    margin-bottom: 25px;
+}
+
+.evento {
+    margin-bottom: 18px;
+}
+
+.evento h3 {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    color: #49301f;
+    margin-bottom: 6px;
+}
+
+.fecha {
+    color: #765238;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.evento p:not(.fecha) {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 13px;
+    margin: 8px 0;
+}
+
+.evento p strong {
+    white-space: nowrap;
+}
+
+.linea {
+    border-top: 1px solid #d8c5a7;
+    margin-top: 15px;
+}
+
+.total {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.total span {
+    color: #765238;
+    font-size: 14px;
+}
+
+.total strong {
+    font-family: Georgia, serif;
+    font-size: 29px;
+    color: #49301f;
+}
+
+/* CARRITO VACÍO */
+
+.carritoVacio {
+    max-width: 600px;
+    margin: 70px auto;
+    padding: 40px 25px;
+    text-align: center;
+    background: #f4ead8;
+    border-radius: 10px;
+    color: #49301f;
+}
+
+.botonVolver {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 22px;
+    background: #49301f;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+    .contenido {
+        grid-template-columns: 1fr;
+    }
+
+    .resumen {
+        position: static;
+        grid-row: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedor {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .titulo {
+        font-size: 25px;
+    }
+
+    .formulario,
+    .resumen {
+        padding: 18px;
+    }
+}

@@ -30,7 +30,7 @@ function ListaPropuestas () {
     
     return (
         <section className={styles.seccion}>
-            <h4 className={styles.titulo}>Restaurante al Mediodía <small>12 a 16 hs.</small></h4>
+            <h4 className={styles.titulo}>Abierto de <small>12 a 16 hs.</small></h4>
             
             <div className={styles.lista}>
 

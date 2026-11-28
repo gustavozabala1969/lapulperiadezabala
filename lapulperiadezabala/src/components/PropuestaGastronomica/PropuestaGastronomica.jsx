@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../context/cartContext";
 
 import { buscarLogo, obtenerDiaSemana, obtenerNumeroDia, obtenerMes, formatearFecha } from "../../utils/funciones";
 
 import styles from './PropuestaGastronomica.module.css';
 
 function PropuestaGastronomica( {id, fecha, capacidadTotal, capacidadOcupada, tipo, descripcion,
-    precioMayores, precioMenores}) {
+    precioMayores, precioMenores, destacado}) {
 
     // const thisOpcionGastronomica = { ...opcionGastronomica}; 
     const thisOpcionGastronomica = { id, fecha, capacidadTotal, capacidadOcupada, tipo, descripcion,
-    precioMayores, precioMenores };
+    precioMayores, precioMenores, destacado };
 
     const [contadorMayores, setCantidadMayores] = useState(0);
     const [contadorMenores, setCantidadMenores] = useState(0);
@@ -86,7 +86,7 @@ function PropuestaGastronomica( {id, fecha, capacidadTotal, capacidadOcupada, ti
 
     const handleAddToCart = () => {
         addToCart(thisOpcionGastronomica, contadorMayores, contadorMenores);
-        alert(`Agregaste mayores: ${contadorMayores} y menores: ${contadorMenores} de ${thisOpcionGastronomica.fecha} (id: ${thisOpcionGastronomica.id})al carrito.`);
+        //  alert(`Agregaste mayores: ${contadorMayores} y menores: ${contadorMenores} de ${thisOpcionGastronomica.fecha} (id: ${thisOpcionGastronomica.id})al carrito.`);
     };
 
     return (
@@ -97,8 +97,13 @@ function PropuestaGastronomica( {id, fecha, capacidadTotal, capacidadOcupada, ti
                 <span>
                     <strong>{obtenerDiaSemana(thisOpcionGastronomica.fecha)}</strong>
                     &nbsp;{obtenerNumeroDia(thisOpcionGastronomica.fecha)}&nbsp;de&nbsp;{obtenerMes(thisOpcionGastronomica.fecha)}
-                </span>
 
+                </span>
+                {thisOpcionGastronomica.destacado && (
+                    <span className={styles.destacado}>
+                        <i className="bi bi-star-fill"></i>
+                    </span>
+                )}
             </p>
             <div className={styles.logoContainer}>
                 <img
@@ -119,7 +124,7 @@ function PropuestaGastronomica( {id, fecha, capacidadTotal, capacidadOcupada, ti
             {thisOpcionGastronomica.precioMayores && (
                 <div className={styles.lineaSeleccion}>
                     <span className={styles.tipoPersona}>
-                        Mayores
+                        Adultos
                     </span>
                     <span className={styles.precio}>
                         ${' '}{Number(thisOpcionGastronomica.precioMayores).toLocaleString('es-AR', {
